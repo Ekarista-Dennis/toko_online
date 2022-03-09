@@ -18,11 +18,16 @@
 
         public function index()
         {
-            $data['invoice'] = $this->model_invoice->tampil_data();
             $this->load->view('templates_admin/header');
             $this->load->view('templates_admin/sidebar');
-            $this->load->view('admin/invoice', $data);
+            $this->load->view('admin/invoice', );
             $this->load->view('templates_admin/footer');
+        }
+
+        public function data_invoice()
+        {
+            $data = $this->model_invoice->tampil_data();
+            echo json_encode($data);
         }
 
         public function detail($id_invoice){
